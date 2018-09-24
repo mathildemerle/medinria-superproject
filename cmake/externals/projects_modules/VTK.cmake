@@ -47,7 +47,7 @@ EP_SetDirectories(${ep}
 ## Define repository where get the sources
 ## #############################################################################
 
-set(tag tags/v5.10.1)
+set(tag tags/v6.0.0)
 if (NOT DEFINED ${ep}_SOURCE_DIR)
     set(location GIT_REPOSITORY "${GITHUB_PREFIX}Kitware/VTK.git" GIT_TAG ${tag})
 endif()
@@ -59,8 +59,8 @@ endif()
 
 # set compilation flags
 if (UNIX)
-  set(${ep}_c_flags "${${ep}_c_flags} -w")
-  set(${ep}_cxx_flags "${${ep}_cxx_flags} -w")
+  set(${ep}_c_flags "${${ep}_c_flags} -w -DGLX_GLXEXT_LEGACY")
+  set(${ep}_cxx_flags "${${ep}_cxx_flags} -w -DGLX_GLXEXT_LEGACY")
   set(unix_additional_args -DVTK_USE_NVCONTROL:BOOL=ON)
 endif()
 
@@ -81,9 +81,10 @@ set(cmake_args
   -DCMAKE_INSTALL_PREFIX:PATH=<INSTALL_DIR>  
   -DBUILD_SHARED_LIBS:BOOL=${BUILD_SHARED_LIBS_${ep}}
   -DQT_QMAKE_EXECUTABLE:FILEPATH=${QT_QMAKE_EXECUTABLE}
-  -DVTK_USE_QT:BOOL=ON
+  -DVTK_Group_Qt:BOOL=ON
   -DVTK_WRAP_TCL:BOOL=OFF
-  -DBUILD_TESTING:BOOL=OFF 
+  -DBUILD_TESTING:BOOL=OFF
+  -DVTK_USE_GLSL_SHADERS:BOOL=ON
   # OGV
   -DVTK_USE_OGGTHEORA_ENCODER:BOOL=ON
   # FFMPEG
@@ -99,7 +100,7 @@ set(cmake_args
 ## Check if patch has to be applied
 ## #############################################################################
 
-ep_GeneratePatchCommand(VTK VTK_PATCH_COMMAND vtk5.10.1VS2015.patch)
+#ep_GeneratePatchCommand(VTK VTK_PATCH_COMMAND vtk5.10.1VS2015.patch)
 
 ## #############################################################################
 ## Add external-project

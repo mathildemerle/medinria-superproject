@@ -51,7 +51,7 @@ EP_SetDirectories(${ep}
 ## Set up versioning control.
 ## #############################################################################
 
-set(tag "music")
+set(tag "master")
 if (NOT DEFINED ${ep}_SOURCE_DIR)
     set(location GIT_REPOSITORY "${GITHUB_PREFIX}Inria-Asclepios/TTK-Public.git" GIT_TAG ${tag})
 endif()
@@ -75,7 +75,7 @@ set(cmake_args
   -DBUILD_SHARED_LIBS:BOOL=${BUILD_SHARED_LIBS_${ep}}    
   -DITK_DIR:FILEPATH=${ITK_DIR}
   -DVTK_DIR:FILEPATH=${VTK_DIR}
-  -DBUILD_TESTING:BOOL=OFF  
+  -DBUILD_TESTING:BOOL=OFF
   )
 
 ## #############################################################################
@@ -97,7 +97,7 @@ ExternalProject_Add(${ep}
   CMAKE_ARGS ${cmake_args}
   DEPENDS ${${ep}_dependencies}
   INSTALL_COMMAND ""
-  BUILD_ALWAYS 1   
+  BUILD_ALWAYS 1
   )
 
   
