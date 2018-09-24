@@ -47,7 +47,7 @@ EP_SetDirectories(${ep}
 ## Define repository where get the sources
 ## #############################################################################
 
-set(tag tags/v5.10.1)
+set(tag tags/v6.0.0)
 if (NOT DEFINED ${ep}_SOURCE_DIR)
     set(location GIT_REPOSITORY "${GITHUB_PREFIX}Kitware/VTK.git" GIT_TAG ${tag})
 endif()
@@ -59,7 +59,7 @@ endif()
 # set additional compilation flags
 if (UNIX)
     # VTK 5.10 does not handle c++11. Change it from flag defined in EP_Initialisation.
-    set(${ep}_cxx_flags "-Wall -std=c++03")
+    set(${ep}_cxx_flags "-Wall -std=c++03 -DGLX_GLXEXT_LEGACY")
 endif()
 
 # library extension
@@ -79,9 +79,10 @@ set(cmake_args_generic
   -DCMAKE_INSTALL_PREFIX:PATH=<INSTALL_DIR>  
   -DBUILD_SHARED_LIBS:BOOL=${BUILD_SHARED_LIBS_${ep}}
   -DQT_QMAKE_EXECUTABLE:FILEPATH=${QT_QMAKE_EXECUTABLE}
-  -DVTK_USE_QT:BOOL=ON
+  -DVTK_Group_Qt:BOOL=ON
   -DVTK_WRAP_TCL:BOOL=OFF
-  -DBUILD_TESTING:BOOL=OFF 
+  -DBUILD_TESTING:BOOL=OFF
+  -DVTK_USE_GLSL_SHADERS:BOOL=ON
   # OGV
   -DVTK_USE_OGGTHEORA_ENCODER:BOOL=ON
   # To be removed when upgrading VTK version
@@ -116,7 +117,7 @@ endif()
 ## Check if patch has to be applied
 ## #############################################################################
 
-ep_GeneratePatchCommand(VTK VTK_PATCH_COMMAND vtk5.10.1VS2015.patch)
+#ep_GeneratePatchCommand(VTK VTK_PATCH_COMMAND vtk5.10.1VS2015.patch)
 
 ## #############################################################################
 ## Add external-project
