@@ -1,11 +1,15 @@
-commit c214fd6e5e11fc011f02ece457e9a82b260e046d
-Author: Florent Collot <florent.collot@ihu-liryc.fr>
-Date:   Fri Sep 28 15:04:27 2018 +0200
+From cf689d7099b1cad888c43e86ad4324e8ed5805d4 Mon Sep 17 00:00:00 2001
+From: mathildemerle <mathilde.merle@ihu-liryc.fr>
+Date: Wed, 3 Oct 2018 16:42:59 +0200
+Subject: [PATCH] patchName
 
-    [PATCH] dtkLibraries
+---
+ cmake/FindDTK.cmake.in | 2 --
+ cmake/dtkUse.cmake.in  | 6 ++++++
+ 2 files changed, 6 insertions(+), 2 deletions(-)
 
 diff --git a/cmake/FindDTK.cmake.in b/cmake/FindDTK.cmake.in
-index a85d2181..3b2cc3ae 100644
+index a85d218..3b2cc3a 100644
 --- a/cmake/FindDTK.cmake.in
 +++ b/cmake/FindDTK.cmake.in
 @@ -29,8 +29,6 @@ set(dtk_CMAKE_DIRS   "@dtk_CMAKE_DIR@")
@@ -18,7 +22,7 @@ index a85d2181..3b2cc3ae 100644
  
  include(${dtk_USE_FILE})
 diff --git a/cmake/dtkUse.cmake.in b/cmake/dtkUse.cmake.in
-index 98438773..a2a2c356 100644
+index 9843877..a2a2c35 100644
 --- a/cmake/dtkUse.cmake.in
 +++ b/cmake/dtkUse.cmake.in
 @@ -31,4 +31,10 @@ if(NOT DTK_USE_FILE_INCLUDED)
@@ -32,3 +36,6 @@ index 98438773..a2a2c356 100644
 +   endif(@DTK_BUILD_COMPOSER@)
 +
  endif(NOT DTK_USE_FILE_INCLUDED)
+-- 
+2.7.4
+
