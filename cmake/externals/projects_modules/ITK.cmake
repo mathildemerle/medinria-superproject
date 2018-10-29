@@ -49,7 +49,7 @@ EP_SetDirectories(${ep}
 ## Set up versioning control.
 ## #############################################################################
 
-set(tag "v4.11.1")
+set(tag "v4.13.1")
 if (NOT DEFINED ${ep}_SOURCE_DIR)
     set(location GIT_REPOSITORY "${GITHUB_PREFIX}InsightSoftwareConsortium/ITK.git" GIT_TAG ${tag})
 endif()
@@ -84,7 +84,7 @@ set(cmake_args
 ## Check if patch has to be applied
 ## #############################################################################
 
-ep_GeneratePatchCommand(ITK ITK_PATCH_COMMAND ITK_Mac_Rpath.patch)
+#ep_GeneratePatchCommand(ITK ITK_PATCH_COMMAND ITK_Mac_Rpath.patch)
 
 ## #############################################################################
 ## Add external-project

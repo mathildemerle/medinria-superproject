@@ -77,6 +77,12 @@ set(cmake_args
   )
 
 ## #############################################################################
+## Check if patch has to be applied
+## #############################################################################
+
+ep_GeneratePatchCommand(TTK TTK_PATCH_COMMAND TTK_Bruker_Minc.patch)
+
+## #############################################################################
 ## Add external-project
 ## #############################################################################
 
@@ -84,6 +90,8 @@ ExternalProject_Add(${ep}
   ${ep_dirs}
   GIT_REPOSITORY ${git_url}
   GIT_TAG ${git_tag}
+  UPDATE_COMMAND ""
+  ${TTK_PATCH_COMMAND}
   CMAKE_GENERATOR ${gen}
   CMAKE_ARGS ${cmake_args}
   DEPENDS ${${ep}_dependencies}
