@@ -20,7 +20,7 @@ set(ep QtDCM)
 ## #############################################################################
 
 list(APPEND ${ep}_dependencies 
-  Qt4 
+ # Qt4 
   ITK 
   DCMTK
   )
@@ -39,6 +39,7 @@ EP_Initialisation(${ep}
 
 
 if (NOT USE_SYSTEM_${ep})
+
 ## #############################################################################
 ## Set directories
 ## #############################################################################
@@ -48,18 +49,18 @@ EP_SetDirectories(${ep}
   )
 
 # Active QTNETWORK
-if (QT4_FOUND)
-  set(QT_USE_QTNETWORK TRUE)
-  include(${QT_USE_FILE})
-endif(QT4_FOUND)
+#if (QT4_FOUND)
+#  set(QT_USE_QTNETWORK TRUE)
+#  include(${QT_USE_FILE})
+#endif(QT4_FOUND)
 
 
 ## #############################################################################
 ## Set up versioning control.
 ## #############################################################################
 
-set(git_url ${GITHUB_PREFIX}medInria/qtdcm.git)
-set(git_tag music)
+set(git_url ${GITHUB_PREFIX}qtdcm/qtdcm.git)
+set(git_tag master)
 
 
 ## #############################################################################
@@ -82,6 +83,7 @@ set(cmake_args
   -DQT_QMAKE_EXECUTABLE:FILEPATH=${QT_QMAKE_EXECUTABLE}
   -DITK_DIR:FILEPATH=${ITK_DIR}
   -DDCMTK_DIR:FILEPATH=${DCMTK_DIR}
+  -DDCMTK_FIND_PACKAGE_USE_CONFIG_ONLY=ON
   )
 
 ## #############################################################################

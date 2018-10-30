@@ -36,6 +36,7 @@ EP_Initialisation(${ep}
 
 
 if (NOT USE_SYSTEM_${ep})
+
 ## #############################################################################
 ## Set directories
 ## #############################################################################
@@ -49,9 +50,10 @@ EP_SetDirectories(${ep}
 ## Define repository where get the sources
 ## #############################################################################
 
-set(url ${GITHUB_PREFIX}medInria/dcmtk.git)
+set(url git://git.dcmtk.org/dcmtk.git)
+set(tag "DCMTK-3.6.2")
 if (NOT DEFINED ${ep}_SOURCE_DIR)
-  set(location GIT_REPOSITORY ${url})
+  set(location GIT_REPOSITORY ${url} GIT_TAG ${tag})
 endif()
 
 
