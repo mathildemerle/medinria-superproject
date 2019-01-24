@@ -49,11 +49,10 @@ EP_SetDirectories(${ep}
 ## Define repository where get the sources
 ## #############################################################################
 
-set(url ${GITHUB_PREFIX}medInria/dcmtk.git)
+set(tag "DCMTK-3.6.2")
 if (NOT DEFINED ${ep}_SOURCE_DIR)
-  set(location GIT_REPOSITORY ${url})
+    set(location GIT_REPOSITORY "git://git.dcmtk.org/dcmtk.git" GIT_TAG ${tag})
 endif()
-
 
 ## #############################################################################
 ## Add specific cmake arguments for configuration step of the project

@@ -89,7 +89,7 @@ set(cmake_args
 ## Check if patch has to be applied
 ## #############################################################################
 
-ep_GeneratePatchCommand(QtDCM QtDCM_PATCH_COMMAND QtDCM_Bruker_Minc.patch)
+ep_GeneratePatchCommand(QtDCM QtDCM_PATCH_COMMAND QtDCM.patch)
 
 ## #############################################################################
 ## Add external-project
