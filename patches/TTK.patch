@@ -1,0 +1,81 @@
+From 54ebb3b26c0c27e859f5f2ac8f4574f69893e06b Mon Sep 17 00:00:00 2001
+From: mathildemerle <mathilde.merle@ihu-liryc.fr>
+Date: Tue, 29 Jan 2019 11:27:46 +0100
+Subject: [PATCH] TTK
+
+---
+ Commands/itkConsolidateFiberBundleCommand.cxx         | 2 +-
+ Commands/itkRBFRotationMatrixExtrapolationCommand.cxx | 2 +-
+ Commands/itkTensorsToVTKUnstructuredGridCommand.cxx   | 2 +-
+ Commands/itkWarpFibersCommand.cxx                     | 2 +-
+ Common/itkTensorImageIO.txx                           | 2 +-
+ 5 files changed, 5 insertions(+), 5 deletions(-)
+
+diff --git a/Commands/itkConsolidateFiberBundleCommand.cxx b/Commands/itkConsolidateFiberBundleCommand.cxx
+index a3791c1..29e17b4 100644
+--- a/Commands/itkConsolidateFiberBundleCommand.cxx
++++ b/Commands/itkConsolidateFiberBundleCommand.cxx
+@@ -127,7 +127,7 @@ namespace itk
+ 
+     vtkPolyDataWriter* writer = vtkPolyDataWriter::New();
+     writer->SetFileName (output);
+-    writer->SetInputData(vtkOutput);
++    writer->SetInputConnection(vtkOutput->GetProducerPort());
+     writer->Update();
+ 
+     reader1->Delete();
+diff --git a/Commands/itkRBFRotationMatrixExtrapolationCommand.cxx b/Commands/itkRBFRotationMatrixExtrapolationCommand.cxx
+index 4b09b10..169ae6e 100644
+--- a/Commands/itkRBFRotationMatrixExtrapolationCommand.cxx
++++ b/Commands/itkRBFRotationMatrixExtrapolationCommand.cxx
+@@ -268,7 +268,7 @@ namespace itk
+ 
+     //vtkStructuredPointsWriter* writer = vtkStructuredPointsWriter::New();
+     vtkUnstructuredGridWriter* writer = vtkUnstructuredGridWriter::New();
+-    writer->SetInputData(matImage);
++    writer->SetInputConnection(matImage->GetProducerPort());
+     writer->SetFileName (output);
+     std::cout << "Writing..." << std::flush;
+     writer->Write();
+diff --git a/Commands/itkTensorsToVTKUnstructuredGridCommand.cxx b/Commands/itkTensorsToVTKUnstructuredGridCommand.cxx
+index 224ec88..eca9a8c 100644
+--- a/Commands/itkTensorsToVTKUnstructuredGridCommand.cxx
++++ b/Commands/itkTensorsToVTKUnstructuredGridCommand.cxx
+@@ -213,7 +213,7 @@ namespace itk
+ 
+     vtkDataSetWriter* writer = vtkDataSetWriter::New();
+     writer->SetFileName(outputfile);
+-    writer->SetInputData(crossvalidation);
++    writer->SetInputConnection(crossvalidation->GetProducerPort());
+     writer->Update();
+ 
+ 
+diff --git a/Commands/itkWarpFibersCommand.cxx b/Commands/itkWarpFibersCommand.cxx
+index f75c260..9be15d4 100644
+--- a/Commands/itkWarpFibersCommand.cxx
++++ b/Commands/itkWarpFibersCommand.cxx
+@@ -212,7 +212,7 @@ namespace itk
+     //bundle->SetPoints (new_points);
+     vtkPolyDataWriter* writer = vtkPolyDataWriter::New();
+     writer->SetFileName ( file_out );
+-    writer->SetInputData( bundle );
++    writer->SetInputConnection(bundle->GetProducerPort());
+     writer->SetFileTypeToBinary();
+     writer->Write();
+ 
+diff --git a/Common/itkTensorImageIO.txx b/Common/itkTensorImageIO.txx
+index 6902597..751fcf9 100644
+--- a/Common/itkTensorImageIO.txx
++++ b/Common/itkTensorImageIO.txx
+@@ -975,7 +975,7 @@ namespace itk
+     vtkStructuredPointsWriter* writer = vtkStructuredPointsWriter::New();
+     writer->SetFileTypeToBinary();
+     writer->SetFileName( m_FileName.c_str() );
+-    writer->SetInputData(tensors);
++    writer->SetInputConnection(tensors->GetProducerPort());
+     writer->Write();
+ 
+     tensors->Delete();
+-- 
+2.7.4
+

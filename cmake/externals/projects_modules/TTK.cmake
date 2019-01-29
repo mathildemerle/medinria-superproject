@@ -51,7 +51,7 @@ EP_SetDirectories(${ep}
 ## Set up versioning control.
 ## #############################################################################
 
-set(tag "music")
+set(tag "master")
 if (NOT DEFINED ${ep}_SOURCE_DIR)
     set(location GIT_REPOSITORY "${GITHUB_PREFIX}Inria-Asclepios/TTK-Public.git" GIT_TAG ${tag})
 endif()
@@ -82,7 +82,7 @@ set(cmake_args
 ## Check if patch has to be applied
 ## #############################################################################
 
-ep_GeneratePatchCommand(TTK TTK_PATCH_COMMAND TTK_Bruker_Minc.patch)
+ep_GeneratePatchCommand(TTK TTK_PATCH_COMMAND TTK.patch)
 
 ## #############################################################################
 ## Add external-project
