@@ -20,7 +20,7 @@ set(ep ITK)
 ## #############################################################################
 
 list(APPEND ${ep}_dependencies 
-  ""
+  VTK
   )
   
   
@@ -71,6 +71,8 @@ set(cmake_args
   -DBUILD_TESTING:BOOL=OFF
   -DModule_ITKIOPhilipsREC:BOOL=ON
   -DModule_ITKReview:BOOL=ON
+  -DModule_ITKVtkGlue:BOOL=ON
+  -DVTK_DIR:FILEPATH=${VTK_DIR}
   -DITK_SKIP_PATH_LENGTH_CHECKS:BOOL=ON
   )
 
