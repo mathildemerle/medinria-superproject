@@ -30,7 +30,7 @@ endif()
 project(medInria-superProject)
 
 if(NOT DEFINED ${medInria-superProject_VERSION})
-    set(medInria-superProject_VERSION 2.4.0)
+    set(medInria-superProject_VERSION 3.0.0)
 endif()
 
 project(medInria-superProject VERSION ${medInria-superProject_VERSION})
@@ -53,7 +53,7 @@ list(APPEND external_projects
   dtk 
   ffmpeg
   VTK 
-  ITK 
+  ITK
   DCMTK 
   TTK
   QtDCM  
