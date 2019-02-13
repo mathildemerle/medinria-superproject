@@ -88,12 +88,12 @@ set(cmake_args
   # OGV
   -DVTK_USE_OGGTHEORA_ENCODER:BOOL=ON
   # FFMPEG
-  -DVTK_USE_FFMPEG_ENCODER:BOOL=ON
+  -DModule_vtkIOFFMPEG:BOOL=ON
   -DFFMPEG_INCLUDE_DIR:STRING=${CMAKE_CURRENT_SOURCE_DIR}/build/ffmpeg/build/include/
-  -DFFMPEG_avcodec_LIBRARY:STRING=${CMAKE_CURRENT_SOURCE_DIR}/build/ffmpeg/build/lib/libavcodec.${extention}
-  -DFFMPEG_avformat_LIBRARY:STRING=${CMAKE_CURRENT_SOURCE_DIR}/build/ffmpeg/build/lib/libavformat.${extention}
-  -DFFMPEG_avutil_LIBRARY:STRING=${CMAKE_CURRENT_SOURCE_DIR}/build/ffmpeg/build/lib/libavutil.${extention}
-  -DFFMPEG_swscale_LIBRARY:STRING=${CMAKE_CURRENT_SOURCE_DIR}/build/ffmpeg/build/lib/libswscale.${extention}
+  -DFFMPEG_LIBAVCODEC_LIBRARIES:STRING=${CMAKE_CURRENT_SOURCE_DIR}/build/ffmpeg/build/lib/libavcodec.${extention}
+  -DFFMPEG_LIBAVFORMAT_LIBRARIES:STRING=${CMAKE_CURRENT_SOURCE_DIR}/build/ffmpeg/build/lib/libavformat.${extention}
+  -DFFMPEG_LIBAVUTIL_LIBRARIES:STRING=${CMAKE_CURRENT_SOURCE_DIR}/build/ffmpeg/build/lib/libavutil.${extention}
+  -DFFMPEG_LIBSWSCALE_LIBRARIES:STRING=${CMAKE_CURRENT_SOURCE_DIR}/build/ffmpeg/build/lib/libswscale.${extention}
   )
 
 ## #############################################################################
