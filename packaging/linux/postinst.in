@@ -7,12 +7,6 @@ rm -rf @CPACK_PACKAGING_INSTALL_PREFIX@/include
 rm -rf @CPACK_PACKAGING_INSTALL_PREFIX@/share/qtdcm
 rm -rf @CPACK_PACKAGING_INSTALL_PREFIX@/plugins/designer
 rm -rf @CPACK_PACKAGING_INSTALL_PREFIX@/lib/*.cmake
-rm -rf @CPACK_PACKAGING_INSTALL_PREFIX@/lib/vtk-5.10/testing
-rm -rf @CPACK_PACKAGING_INSTALL_PREFIX@/lib/vtk-5.10/doxygen
-rm -rf @CPACK_PACKAGING_INSTALL_PREFIX@/lib/vtk-5.10/doc
-rm -rf @CPACK_PACKAGING_INSTALL_PREFIX@/lib/vtk-5.10/CMake
-rm -rf @CPACK_PACKAGING_INSTALL_PREFIX@/lib/vtk-5.10/*.cmake
-rm -rf @CPACK_PACKAGING_INSTALL_PREFIX@/lib/InsightToolkit/*.cmake
 rm -rf @CPACK_PACKAGING_INSTALL_PREFIX@/bin/vtk*
 rm -rf @CPACK_PACKAGING_INSTALL_PREFIX@/bin/ttk*
 rm -rf @CPACK_PACKAGING_INSTALL_PREFIX@/bin/itk*
