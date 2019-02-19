@@ -62,9 +62,9 @@ if (WIN32)
   ExternalProject_Add(${ep}
     ${ep_dirs}
     ${location}
-	CONFIGURE_COMMAND ""
-	INSTALL_COMMAND ""
-	BUILD_COMMAND mv ${CMAKE_CURRENT_SOURCE_DIR}/${ep}/bin/ffmpeg.exe ${CMAKE_CURRENT_SOURCE_DIR}/build/${ep}/build
+    CONFIGURE_COMMAND ""
+    INSTALL_COMMAND ""
+    BUILD_COMMAND mv ${CMAKE_CURRENT_SOURCE_DIR}/${ep}/bin/ffmpeg.exe ${CMAKE_CURRENT_SOURCE_DIR}/build/${ep}/build
   )
 else()
   ExternalProject_Add(${ep}
