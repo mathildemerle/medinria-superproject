@@ -45,13 +45,16 @@ EP_SetDirectories(${ep}
 ## #############################################################################
 
 if (WIN32)
-  set(tag "master")
+  set(tag "release/4.1")
+  if (NOT DEFINED ${ep}_SOURCE_DIR)
+    set(location GIT_REPOSITORY "https://git.ffmpeg.org/ffmpeg.git" GIT_TAG ${tag})
+	#set(location URL "http://www.vtk.org/files/support/ffmpeg_source.tar.gz")
+  endif()
 else()
   set(tag "release/0.7") # cf. ${GITHUB_PREFIX}FFmpeg/FFmpeg.git for release numbers
-endif()
-
-if (NOT DEFINED ${ep}_SOURCE_DIR)
+  if (NOT DEFINED ${ep}_SOURCE_DIR)
 	set(location GIT_REPOSITORY "https://git.ffmpeg.org/ffmpeg.git" GIT_TAG ${tag})
+  endif()
 endif()
 
 ## #############################################################################
@@ -65,6 +68,7 @@ if (WIN32)
 	BUILD_COMMAND ${CMAKE_CURRENT_SOURCE_DIR}/cmake/externals/projects_modules/ffmpeg-configure.bat ${CMAKE_CURRENT_SOURCE_DIR}/${ep} ${CMAKE_CURRENT_SOURCE_DIR}/build/${ep}/build
 	PREFIX ${CMAKE_CURRENT_SOURCE_DIR}/build/${ep}/build
 	INSTALL_COMMAND ""
+	BUILD_COMMAND make install
   )
 else()
   ExternalProject_Add(${ep}

@@ -1,1 +1,1 @@
-C:\cygwin64\bin -l %~dp0/ffmpeg-configure.sh %1 %2
+C:\cygwin64\bin\bash.exe -l %~dp0/ffmpeg-configure.sh %1 %2
