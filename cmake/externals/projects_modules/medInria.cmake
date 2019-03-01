@@ -61,8 +61,8 @@ EP_SetDirectories(${ep}
 ## Define repository where get the sources
 ## #############################################################################
 
-set(git_url ${GITHUB_PREFIX}Inria-Asclepios/medInria-public.git)
-set(git_tag master)
+set(git_url ${GITHUB_PREFIX}mathildemerle/medInria-public.git)
+set(git_tag ITK4.13)
 
 
 ## #############################################################################
