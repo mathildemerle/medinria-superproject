@@ -58,7 +58,7 @@ endif()
 
 # set additional compilation flags
 if (UNIX)
-    set(${ep}_cxx_flags "${ep}_cxx_flags -Wall -DGLX_GLXEXT_LEGACY")
+    set(${ep}_cxx_flags "${${ep}_cxx_flags} -DGLX_GLXEXT_LEGACY")
 endif()
 
 # library extension
