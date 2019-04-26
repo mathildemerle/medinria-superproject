@@ -51,7 +51,7 @@ EP_SetDirectories(${ep}
 
 set(tag "DCMTK-3.6.2")
 if (NOT DEFINED ${ep}_SOURCE_DIR)
-    set(location GIT_REPOSITORY "git://git.dcmtk.org/dcmtk.git" GIT_TAG ${tag})
+  set(location GIT_REPOSITORY "git://git.dcmtk.org/dcmtk.git" GIT_TAG ${tag})
 endif()
 
 ## #############################################################################

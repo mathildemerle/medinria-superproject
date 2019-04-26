@@ -58,8 +58,7 @@ endif()
 
 # set additional compilation flags
 if (UNIX)
-    # VTK 5.10 does not handle c++11. Change it from flag defined in EP_Initialisation.
-    set(${ep}_cxx_flags "-Wall -std=c++03 -DGLX_GLXEXT_LEGACY")
+    set(${ep}_cxx_flags "${ep}_cxx_flags -Wall -DGLX_GLXEXT_LEGACY")
 endif()
 
 # library extension
@@ -84,6 +83,7 @@ set(cmake_args_generic
   -DVTK_WRAP_TCL:BOOL=OFF
   -DBUILD_TESTING:BOOL=OFF
   -DVTK_USE_GLSL_SHADERS:BOOL=ON
+  -DVTK_USE_CXX11_FEATURES:BOOL=ON
   # OGV
   -DVTK_USE_OGGTHEORA_ENCODER:BOOL=ON
   # To be removed when upgrading VTK version
